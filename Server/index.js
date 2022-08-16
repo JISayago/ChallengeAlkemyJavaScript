@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const sequelize = require('./database/db');
-const Operation = require('./database/Models/Operation');
 
 //Setting PORT
 const PORT = process.env.PORT || 3001;
@@ -12,22 +11,20 @@ app.use(express.urlencoded({ extended: false }));
 
 // ROUTES
 app.get('/', function (req, res) {
-    Operation.create({
-        amount: "1",
-        concept: "",
-        date: new Date(),
-        tipeOf:"extraction",
-    }).then(operation => {
-        res.json(operation)
- })
+    res.json("hello wolf!")
 });
+app.use('/api/operations', require('./routes/operations'));
+
+
+
 
 //RUN SERVER
 app.listen(PORT, function () {
     console.log(`App Running on Port:${PORT}`);
     
     //Conection to Database
-    sequelize.sync({force:true}).then(() => {
+    sequelize.sync({ force: true }).then(() => {
+        const as = new Date();
         console.log("Conection Status: Succcessfull!");
     }).catch(error => {
         console.log("Conection Status: Failed!",error);
