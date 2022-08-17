@@ -5,7 +5,7 @@ const sequelize = require('./database/db');
 //Setting PORT
 const PORT = process.env.PORT || 3001;
 
-//Middleware para poder usar el post con req.body
+//Middleware to use with req.body(POST/put)
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -13,9 +13,9 @@ app.use(express.urlencoded({ extended: false }));
 app.get('/', function (req, res) {
     res.json("hello wolf!")
 });
+
+//ApiRoutes
 app.use('/api/operations', require('./routes/operations'));
-
-
 
 
 //RUN SERVER
@@ -23,8 +23,7 @@ app.listen(PORT, function () {
     console.log(`App Running on Port:${PORT}`);
     
     //Conection to Database
-    sequelize.sync({ force: true }).then(() => {
-        const as = new Date();
+    sequelize.sync({ force: false }).then(() => {
         console.log("Conection Status: Succcessfull!");
     }).catch(error => {
         console.log("Conection Status: Failed!",error);
