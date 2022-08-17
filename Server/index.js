@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
 const sequelize = require('./database/db');
+const cors = require('cors');
+const { addHook } = require('./database/models/Operation');
 
 //Setting PORT
 const PORT = process.env.PORT || 3001;
 
-//Middleware to use with req.body(POST/put)
+//Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
 // ROUTES
 app.get('/', function (req, res) {
