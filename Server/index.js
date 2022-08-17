@@ -19,8 +19,8 @@ app.use('/api/operations', require('./routes/operations'));
 
 
 //RUN SERVER
-app.listen(PORT, function () {
-    console.log(`App Running on Port:${PORT}`);
+app.listen(PORT, () => {
+    console.log(`Server Running on Port:${PORT}`);
     
     //Conection to Database
     sequelize.sync({ force: false }).then(() => {

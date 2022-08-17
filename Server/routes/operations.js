@@ -3,13 +3,14 @@ const router = express.Router();
 const Operation = require('../database/models/Operation');
 
 //Get Route
-router.get('/',  (req, res)=> {
-    res.send("operations routes")
+router.get('/', async (req, res)=> {
+     const listOfOperations = await Operation.findAll();
+    res.json(listOfOperations);
 });
 
 //Create /api/operations
-router.post('/', (req, res) => {
-    Operation.create({
+router.post('/', async (req, res) => {
+    await Operation.create({
         amount: req.body.amount,
         concept: req.body.concept,
         date: req.body.date,
@@ -20,15 +21,15 @@ router.post('/', (req, res) => {
 })
   
 //Read  /api/operations/:id
-router.get('/:id', (req, res) => {
-    Operation.findByPk(req.params.id).then(operation => {
+router.get('/:id',  async (req, res) => {
+    await Operation.findByPk(req.params.id).then(operation => {
         res.json(operation);
     })
 })
 
-//Update
-router.put('/:id', (req, res) => {
-    Operation.update({
+//Update /api/operations/:id
+router.put('/:id', async (req, res) => {
+    await Operation.update({
         amount: req.body.amount,
         concept: req.body.concept,
         date: req.body.date,
@@ -42,9 +43,9 @@ router.put('/:id', (req, res) => {
     })
 })
 
-//Delete
-router.delete('/:id', (req, res) => {
-    Operation.destroy({
+//Delete /api/operations/:id
+router.delete('/:id', async (req, res) => {
+    await Operation.destroy({
         where: {
             id:req.params.id
         }
