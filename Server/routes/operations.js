@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
         amount: req.body.amount,
         concept: req.body.concept,
         date: req.body.date,
-        typeof:req.body.typeof,        
+        typeOf:req.body.typeOf,        
     }).then(operation => {
         res.json(operation);
     })

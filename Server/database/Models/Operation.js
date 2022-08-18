@@ -19,15 +19,18 @@ Operation.init({
         isDate: true,
         notEmpty:true,
     },
-    tipeOf: {//tipeof hanlde with tinyint 0,1,etc  (extraction, insertion, and the posibility to add other type whith number)
+    typeOf: {//tipeof hanlde with tinyint 0,1,etc  (extraction, insertion, and the posibility to add other type whith number)
         type: DataTypes.TINYINT,
-        allowNull:false,
+        allowNull: false,
         isInt: true,
-        notEmpty:true,
+        notEmpty: true,
     }
 }, {
     sequelize,
     modelName: "operations"
 });
+
+
+ 
 
 module.exports = Operation;

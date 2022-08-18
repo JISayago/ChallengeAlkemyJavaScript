@@ -9,11 +9,10 @@ Category.init({
         allowNull: false,
         notEmpty:true,
         isLowerCase:true,
-
     }
 }, {
     sequelize,
-    modelName: "categories"
+    modelName: "categories",
 });
 
 module.exports = Category;
