@@ -1,7 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Category = require('../database/models/Category');
+const Operation = require('../database/models/Operation');
 
+router.get('/', async (req, res)=> {
+    const listOfCategories = await Category.findAll();
+   res.json(listOfCategories);
+});
 
 router.post('/', async (req, res) => {
     await Category.create({

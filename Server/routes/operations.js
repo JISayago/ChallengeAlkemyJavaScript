@@ -1,10 +1,21 @@
 const express = require('express');
+const Category = require('../database/models/Category');
 const router = express.Router();
 const Operation = require('../database/models/Operation');
+const User = require('../database/models/User');
 
 //Get Route
 router.get('/', async (req, res)=> {
-     const listOfOperations = await Operation.findAll();
+    const listOfOperations = await Operation.findAll({
+        attributes: ['amount','concept','date','typeOf'],
+        include: [{
+            model: Category,
+            attributes: ['categoryName'],
+        }, {
+            model: User,
+            attributes:['userName'],
+        }] 
+    });
     res.json(listOfOperations);
 });
 

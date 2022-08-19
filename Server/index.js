@@ -15,8 +15,6 @@ app.use(cors());
 app.get('/', function (req, res) {
     res.json("hello wolf!")
 });
-
-//ApiRoutes
 app.use('/api/accountHandler', require('./routes/users'));//here select log-in or sign-in
 app.use('/api/operations', require('./routes/operations'));
 app.use('/api/categories', require('./routes/categories'));
@@ -28,7 +26,7 @@ app.listen(PORT, () => {
     console.log(`Server Running on Port:${PORT}`);
     
     //Conection to Database
-    sequelize.sync({ force: true }).then(() => {
+    sequelize.sync({ force: false }).then(() => {
         const d = new Date();
         console.log("Conection Status: Succcessfull!", d);
     }).catch(error => {
