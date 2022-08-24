@@ -19,8 +19,6 @@ router.get('/', async (req, res)=> {
                 model: Category,
                 as: "category",
                 attributes:['categoryName']
-                
-                
             }
             ]
             
