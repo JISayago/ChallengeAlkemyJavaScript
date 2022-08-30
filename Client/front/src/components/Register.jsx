@@ -2,7 +2,7 @@ import React from 'react'
 
 function Register() {
   return (
-    <form className='user_form'>
+    <form className='register_form user_form'>
     <div className='row'>
       <label>Email</label>
     <input type="email" />

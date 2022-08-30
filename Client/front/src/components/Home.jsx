@@ -19,7 +19,8 @@ function Home() {
           </div>
           <div className='body'>
               <ActionButtons />
-              <Register/>
+              <Register />
+              <Login/>
               <OperationForm/>
               <OperationList />
               
