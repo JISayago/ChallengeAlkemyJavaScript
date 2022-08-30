@@ -19,7 +19,7 @@ Operation.init({
         isDate: true,
         notEmpty:true,
     },
-    typeOf: {//tipeof hanlde with tinyint 0,1,etc  (extraction, insertion, and the posibility to add other type whith number)
+    typeOf: {//tipeof hanlde with tinyint 0,1,etc  (outcome, income, and the posibility to add other type whith number)
         type: DataTypes.TINYINT,
         allowNull: false,
         isInt: true,

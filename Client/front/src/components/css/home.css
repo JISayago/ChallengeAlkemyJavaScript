@@ -5,8 +5,9 @@
     --grey_blue:#787A91;
     --grey_blue_t20:#787A9120;
     --white_grey:#EEEEEE;
-    --red:#C21010;
-    --yellow:#ffa500;
+    --white_grey_t99:#EEEEEE99;
+    --red:#c72b2b;
+    --yellow:#e9ac3b;
 }
 *{
 margin:0;
@@ -58,14 +59,13 @@ position: relative;
     background-color: var(--grey_blue);
     color: black;
 }
-.body{
-
-}
 .action_buttons{
     display: flex;
     width: 100%;
     height: 5vh;
+    margin-bottom: 15px;
     background-color: var(--dark_blue);
+    box-shadow:0px 2px 0px var(--grey_blue);
 }
 .action_buttons button{
     width: 50%;
@@ -98,8 +98,6 @@ position: relative;
     border-radius: 5px;
     box-shadow: 2px 2px 0px var(--grey_blue);
 }
-.list_operations .operation_detail{
-}
 .list_operations .detail_header{
     display: flex;
     justify-content: space-between;
@@ -114,6 +112,7 @@ position: relative;
     display:flex;
     flex-direction: column;
     float: right;
+    padding: 3px;
     min-width: 60%;
     max-width: 60%;
     overflow: auto;

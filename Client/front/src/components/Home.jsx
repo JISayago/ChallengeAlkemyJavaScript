@@ -1,21 +1,28 @@
 import React from 'react';
-import "./css/header.css";
+import "./css/home.css";
+import "./css/form.css";
+import "./css/userForm.css";
 import ActionButtons from './ActionButtons';
 import AccountButtons from './AccountButtons';
 import OperationList from './OperationList';
+import UserName from './UserName';
+import OperationForm from './OperationForm';
+import Register from './Register';
+import Login from './Login';
 
 function Home() {
   return (
       <div>
           <div className='header'>
-               <AccountButtons/>
-              <div className='accountName'>
-                  <label>User: TheMostBetter</label>
-              </div>
+              <AccountButtons/>
+              <UserName/>
           </div>
           <div className='body'>
               <ActionButtons />
-              <OperationList/>              
+              <Register/>
+              <OperationForm/>
+              <OperationList />
+              
           </div>
           
       </div>

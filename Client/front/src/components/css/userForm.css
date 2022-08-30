@@ -1,0 +1,38 @@
+@media screen and (min-width: 260px) {
+    .user_form{
+        display: none;
+        justify-content: space-between;
+        padding: 15px;
+        background-color: var(--grey_blue);
+        flex-direction: column;
+    }
+    .user_form_visible{
+        display: flex;
+    }
+    .user_form input[type="email"],input[type="password"],input[type="text"]{
+        width: 70%;
+        border-radius: 3px;
+        border-color: transparent;
+        font-weight: bold;
+    }
+    .user_form input[type="email"],input[type="password"],input[type="text"]:focus{
+        outline: none;
+        
+    }
+    .user_form .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 5px;
+    }
+    .user_form label{
+        color: var(--white_grey);
+        font-weight: bold;
+    }
+.user_form button{
+        background-color: var(--dark_blue);
+        color:var(--white_grey);
+        border-color:  transparent;
+        margin-top:5px;
+}
+}
