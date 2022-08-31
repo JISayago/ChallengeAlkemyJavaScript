@@ -29,10 +29,16 @@
         color: var(--white_grey);
         font-weight: bold;
     }
-.user_form button{
+    .user_form button{
         background-color: var(--dark_blue);
         color:var(--white_grey);
         border-color:  transparent;
         margin-top:5px;
-}
+    }
+    .buttons_row{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 80%;
+    }
 }

@@ -7,6 +7,11 @@ function OperationForm() {
     let element = document.getElementsByClassName('category_form_')[0];
     element.classList.add("category_form_visible");
   }
+  const handleCancel = (e) => {
+    e.preventDefault();
+    let ele = document.getElementsByClassName('operation_form')[0];
+    ele.classList.remove("operation_form_visible");
+  }
   return (
     <form className='operation_form'>
       <div className='header_form'>
@@ -35,7 +40,10 @@ function OperationForm() {
           <CategoryForm/>
         </div>
         
+        <div className='buttons_row'>
         <button className='add_operation_button'>Add Operation</button>
+        <button onClick={handleCancel}>Cancel</button>
+        </div>
         </div>
     </form>
   )

@@ -1,6 +1,8 @@
 import React from 'react'
+import AccountFormButtons from './AccountFormButtons';
 
 function Register() {
+  const formClass = "register_form";
   return (
     <form className='register_form user_form'>
     <div className='row'>
@@ -15,7 +17,7 @@ function Register() {
               <label>User</label>
               <input type="text"/>
           </div>
-    <button>Register</button>
+      <AccountFormButtons formClass={formClass} />
 </form>    
 
     )
