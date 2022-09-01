@@ -1,16 +1,16 @@
 import React from 'react'
 
-function Detail() {
+function Detail(props) {
   return (
     <div className='detail'>
     <div className='detail_row'>
-    <label className='category'><strong>Category:</strong></label><label className='detail_data'> Food</label>
+        <label className='category'><strong>Category:</strong></label><label className='detail_data'>{props.category.categoryName}</label>
     </div>
     <div className='detail_row'>
-    <label className='amount'><strong>Total:</strong></label><label className='detail_data'> $98.85{/*if extraction red and -*/ }</label>
+        <label className='amount'><strong>Amount:</strong></label><label className='detail_data'> ${props.amount}{/*if extraction red and -*/ }</label>
     </div>
     <div className='detail_row'>
-    <label className='concept'><strong>Concept:</strong></label><label className='detail_data'><small>asasd</small></label>
+        <label className='concept'><strong>Concept:</strong></label><label className='detail_data'><small>{props.concept}</small></label>
     </div>
       
  </div>

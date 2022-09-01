@@ -7,7 +7,7 @@ const User = require('../database/models/User');
 //Get Route
 router.get('/', async (req, res)=> {
     const listOfOperations = await Operation.findAll({
-        attributes: ['amount','concept','date','typeOf'],
+        attributes: ['id','amount','concept','date','typeOf'],
         include: [{
             model: Category,
             attributes: ['categoryName'],

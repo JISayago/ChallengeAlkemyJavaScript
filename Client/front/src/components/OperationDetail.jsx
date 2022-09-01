@@ -3,14 +3,21 @@ import Detail from './Detail';
 import DetailHeader from './DetailHeader';
 import DetailButtons from './DetailButtons';
 
-function OperationDetail() {
+function OperationDetail({ operation }) {
+  
   return (
-    <div className='operation'>
+    <div  className='operation'>
     <div className='operation_detail'>
-     <DetailHeader/>
-        <Detail />
-        <DetailButtons/>
-    </div>
+        <DetailHeader
+          date={operation.date}
+          typeOf={ operation.typeOf} />
+        <Detail
+          category={operation.category}
+          amount={operation.amount} 
+          concept={operation.concept}
+          /> 
+        <DetailButtons operation={operation} />
+      </div>
 </div>
   )
 }

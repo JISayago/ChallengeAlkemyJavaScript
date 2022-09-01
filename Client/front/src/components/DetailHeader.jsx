@@ -1,9 +1,9 @@
 import React from 'react'
-function DetailHeader() {
+function DetailHeader(props) {
   return (
     <div className='detail_header'>
-    <label className='date'>15/4/1996</label>  
-    <label className='typeOf'>Outcome</label>
+      <label className='date'>{props.date }</label>  
+      <label className='typeOf'>{props.typeOf}</label>
     </div>
   )
 }
