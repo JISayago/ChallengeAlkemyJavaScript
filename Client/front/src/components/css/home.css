@@ -6,8 +6,10 @@
     --grey_blue_t20:#787A9120;
     --white_grey:#EEEEEE;
     --white_grey_t99:#EEEEEE99;
-    --red:#c72b2b;
+    --dark_red:#c72b2b;
     --yellow:#e9ac3b;
+    --green:#18d418;
+    --red:#ff2e2e;
 }
 *{
 margin:0;
@@ -105,9 +107,6 @@ position: relative;
 .list_operations .detail_header .date{
     color: var(--grey_blue)
 }
-.list_operations .detail_header .typeOf{
-    color: red;
-}
 .list_operations .detail{
     display:flex;
     flex-direction: column;
@@ -149,6 +148,12 @@ border: 1px solid var(--yellow);
 }
 .display_none{
     display:none;
+ }
+ .color_green{
+    color:var(--green);
+ }
+ .color_red{
+    color:var(--red);
  }
 }
 @media screen and (min-width: 600px) {
