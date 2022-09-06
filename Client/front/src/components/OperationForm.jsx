@@ -1,7 +1,17 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import CategoryForm from './CategoryForm';
+import axios from 'axios';
 
 function OperationForm() {
+
+  const [categories, setCategories] = useState([]);
+  
+  useEffect(() => {
+    axios.get('http://localhost:3001/api/categories')
+      .then(res => setCategories(res.data))
+      .catch(error => console.log(error))
+  }, [])
+
   const handleEventCategoryForm = (e) => {
     e.preventDefault();
     let element = document.getElementsByClassName('category_form_')[0];
@@ -20,39 +30,40 @@ function OperationForm() {
     ele.classList.remove("operation_form_visible");
   }
   return (
-    <form className='operation_form'>
+    <form action='http://localhost:3001/api/operations' method='POST' className='operation_form'>
       <div className='operation_top_body'>
       <div className='header_form'>
         <h3>Add new Operation</h3>
-        <select id="type" name="types">
+        <select id="type" name="typeOf">
     <option value="0">Outcome</option>
     <option value="1">Income</option>
         </select>
       </div>
       <div className='amount form_row'>
-      <input type="text" placeholder='amount...' />
+      <input type="text" name="amount" placeholder='amount...' />
       </div>
       <div className='concept form_row'>
-        <input type="text" placeholder='concept...' />
+        <input type="text" name='concept' placeholder='concept...' />
         </div>
         </div>
       <div className='category form_row category_last_row'>
       </div>  
         <div className='category_row'>
           <div className='category_row_battery'>
-            <select id="category" name="categories">
-              <option value="defect">Category</option>
-                <option value="food">Food</option>
-                <option value="health">Health</option>
+          <select id="category" name="category">
+            {
+              categories.map(category => 
+              <option value={category.id}>{category.categoryName }</option>
+              )
+            }
              </select>
             <button onClick={handleEventCategoryForm} className='add_category'>+</button>
         </div>
-
           <CategoryForm/>
         </div>
         
         <div className='buttons_row'>
-        <button className='add_operation_button'>Add Operation</button>
+        <button type='submit' className='add_operation_button'>Add Operation</button>
         <button onClick={handleCancel}>Cancel</button>
         </div>
         

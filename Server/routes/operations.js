@@ -24,8 +24,10 @@ router.post('/', async (req, res) => {
     await Operation.create({
         amount: req.body.amount,
         concept: req.body.concept,
-        date: req.body.date,
-        typeOf:req.body.typeOf,        
+        date: new Date(),
+        typeOf: req.body.typeOf, 
+        userId:1,
+        categoryId:req.body.category,
     }).then(operation => {
         res.json(operation);
     })
