@@ -9,11 +9,12 @@ router.get('/', async (req, res)=> {
 });
 
 router.post('/', async (req, res) => {
+    console.log(req.body)
     await Category.create({
         categoryName: req.body.categoryName,
     }).then(category => {
         res.json(category);
     })
-})
+   })
   
 module.exports = router;

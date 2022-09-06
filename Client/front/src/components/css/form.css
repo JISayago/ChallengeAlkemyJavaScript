@@ -73,5 +73,15 @@
         margin-top:3px;
         margin-left: 3px;
     }
+    .operation_top_body_hidden {
+        display: none;
+    }
+    .buttons_row_hidden{
+        display: none;
+        visibility: hidden;
+        
+
+        
+    }
     
 }
