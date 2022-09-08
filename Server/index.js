@@ -27,8 +27,7 @@ app.listen(PORT, () => {
     
     //Conection to Database
     sequelize.sync({ force: false }).then(() => {
-        const d = new Date();
-        console.log("Conection Status: Succcessfull!", d);
+        console.log("Conection Status: Succcessfull!");
     }).catch(error => {
         console.log("Conection Status: Failed!",error);
     })

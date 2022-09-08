@@ -31,6 +31,7 @@ function OperationForm() {
   }
   return (
     <form action='http://localhost:3001/api/operations' method='POST' className='operation_form'>
+      <input type="hidden" name="date" value={new Date()}/>
       <div className='operation_top_body'>
       <div className='header_form'>
         <h3>Add new Operation</h3>

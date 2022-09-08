@@ -21,15 +21,11 @@ router.get('/', async (req, res)=> {
                 attributes:['categoryName']
             }
             ]
-            
         }, 
-
     });
     res.json(listOfUsers);
     
 });
-
-
 
 router.post('/', async (req, res) => {
     await User.create({

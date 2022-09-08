@@ -21,10 +21,11 @@ router.get('/', async (req, res)=> {
 
 //Create /api/operations
 router.post('/', async (req, res) => {
+    const date = new Date();
     await Operation.create({
         amount: req.body.amount,
         concept: req.body.concept,
-        date: new Date(),
+        date: req.body.date,
         typeOf: req.body.typeOf, 
         userId:1,
         categoryId:req.body.category,
