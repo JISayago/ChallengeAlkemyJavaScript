@@ -1,21 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Home from "./components/Home";
+import  UserLoggedContext from "./context/UserLoggedContext";
 
 function App() {
+  const { userLogged } = useContext(UserLoggedContext)
+  const flag = true;
+  
 
-  /*useEffect(() => {
-    axios
-      .get("http://localhost:3001/api/accountHandler/")
-      .then((response) => {
-        console.log(response.data);
-      })
-  },[])
-  */
   return (
-       
+           
     <div className="App">
-      <Home/>
+      {userLogged.userName !== "guest" && userLogged.password !== "123" ?
+        <Home logged={flag} user={userLogged.userName } /> :
+        <Home logged={!flag} user={userLogged.userName }/>
+        }
+        
+        
     </div>
   );
 }

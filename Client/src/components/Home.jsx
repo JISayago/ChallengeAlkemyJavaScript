@@ -10,19 +10,36 @@ import OperationForm from './OperationForm';
 import Register from './Register';
 import Login from './Login';
 
-function Home() {
+function Home(props) {
+    const logged = props.logged;
+    const user = props.user;
+
   return (
       <div>
           <div className='header'>
               <AccountButtons/>
-              <UserName/>
+              <UserName user={ user} />
           </div>
           <div className='body'>
-              <ActionButtons />
-              <Register />
-              <Login/>
-              <OperationForm/>
-              <OperationList />
+              {logged ?
+                  <>
+                  <ActionButtons />
+                  <Register />
+                  <Login/>
+                  <OperationForm/>
+                  <OperationList />
+                  </> :
+                  <>
+                  <Register />
+                      <Login />
+                      <div className='title_alert_container'>
+                          <h2 className='title_alert'>
+                              Please Login or Sign Up!
+                          </h2>
+                      </div>
+                  </>
+                  
+               }
               
           </div>
           

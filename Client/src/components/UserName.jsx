@@ -1,9 +1,10 @@
 import React from 'react'
 
-function UserName() {
+function UserName(props) {
+  
   return (
             <div className='accountName'>
-      <label>Username: TheMostBetter</label>
+      <label>Username: { props.user}</label>
             </div>
   )
 }

@@ -23,6 +23,9 @@ body{
 
 /*Mobile MediaQuery*/
 @media screen and (min-width: 260px) {
+
+
+
 .header{
 width: 100%;
 height: 13vh;
@@ -155,6 +158,15 @@ border: 1px solid var(--yellow);
  .color_red{
     color:var(--red);
  }
+ .title_alert_container{
+    width: 100%;
+    text-align: center;
+ }
+ .title_alert{
+    color: var(--white_grey);
+    padding: 15px;
+    margin: 0 auto;
+    }
 }
 @media screen and (min-width: 600px) {
 }
