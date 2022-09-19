@@ -1,5 +1,3 @@
-import React, { useContext, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import "./css/home.css";
 import "./css/form.css";
 import "./css/userForm.css";

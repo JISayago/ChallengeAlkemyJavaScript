@@ -1,5 +1,4 @@
-import { useContext, useEffect } from "react";
-import axios from "axios";
+import { useContext} from "react";
 import Home from "./components/Home";
 import  UserLoggedContext from "./context/UserLoggedContext";
 

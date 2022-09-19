@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import UserLoggedContext from '../context/UserLoggedContext';
+
 
 function AccountButtons() {
+  const { userLogged, setUserLogged } = useContext(UserLoggedContext);
+   
+      
+
+
   const handleAccountOption = (classname) => {
     let element = document.getElementsByClassName(classname)[0];
     if (classname === "login_form") {
@@ -21,10 +28,24 @@ function AccountButtons() {
     e.preventDefault();
     handleAccountOption("register_form");
   }
+  const handleLogout = (e) => {
+    e.preventDefault();
+    setUserLogged({
+      id: 0,
+      email: "guest@gmail.com",
+      userName: "guest"
+    })
+
+  }
 
   return (
     <div className='account_buttons'>
-    <button onClick={showLogin} className='button_signIn'>Sign-In</button>
+      {userLogged.id !== 0 ?
+        <button onClick={handleLogout} className='button_signIn'>Sign-Out</button>
+        :
+        <button onClick={showLogin} className='button_signIn'>Sign-In</button>
+      }
+    
     <button onClick={showRegister} className='button_signUp'>Sign-Up</button>
       
     </div>

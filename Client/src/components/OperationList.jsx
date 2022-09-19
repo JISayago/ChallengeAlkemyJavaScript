@@ -7,12 +7,14 @@ function OperationList() {
 
   const [operations, setOperations] = useState([]);
   const { userLogged } = useContext(UserLoggedContext);
- 
+  
   useEffect(() => {
     axios.get(`http://localhost:3001/api/operations/${userLogged.id}`)
       .then(res => setOperations(res.data))
       .catch(error => console.log(error))
   }, [userLogged])
+
+    
   
   return (
     <div className='list_operations'>
