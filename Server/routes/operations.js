@@ -5,8 +5,11 @@ const Operation = require('../database/models/Operation');
 const User = require('../database/models/User');
 
 //Get Route
-router.get('/', async (req, res)=> {
+router.get('/:userId', async (req, res) => {
     const listOfOperations = await Operation.findAll({
+        where: {
+            userId: req.params.userId,
+        },
         attributes: ['id','amount','concept','date','typeOf'],
         include: [{
             model: Category,
@@ -15,8 +18,8 @@ router.get('/', async (req, res)=> {
             model: User,
             attributes:['userName'],
         }] 
-    });
-    res.json(listOfOperations);
+    })
+    .then(listOfOperations => res.send(listOfOperations));
 });
 
 //Create /api/operations

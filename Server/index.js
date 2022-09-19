@@ -15,7 +15,7 @@ app.use(cors());
 app.get('/', function (req, res) {
     res.json("hello wolf!")
 });
-app.use('/api/accountHandler', require('./routes/users'));//here select log-in or sign-in
+app.use('/api/accountHandler', require('./routes/users'));
 app.use('/api/operations', require('./routes/operations'));
 app.use('/api/categories', require('./routes/categories'));
 

@@ -6,8 +6,9 @@ const Category = require('../database/models/Category');
 
 
 //Create /api/
-router.get('/', async (req, res)=> {
-    const listOfUsers = await User.findAll({
+router.get('/:id', async (req, res)=> {
+    const users = await User.findOne({
+        attributes: ['id','userName','email'],
         include: {
             model: Operation,
             as: "operations",
@@ -22,19 +23,23 @@ router.get('/', async (req, res)=> {
             }
             ]
         }, 
-    });
-    res.json(listOfUsers);
+    }).then()
+    
     
 });
 
-router.post('/', async (req, res) => {
-    await User.create({
-        email: req.body.email,
-        password: req.body.password,
-        userName: req.body.userName,
-    }).then(user => {
-        res.json(user);
+router.post('/login', async (req, res) => {
+    const user = await User.findOne({
+        attributes: ['id','userName','email'],
+        where: {
+            email: req.body.email,
+            password: req.body.password
+        }
+        
     })
+        .then(user => res.send(user));
+    
 })
-  
+
+
 module.exports = router;

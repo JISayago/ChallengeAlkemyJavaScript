@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import "./css/home.css";
 import "./css/form.css";
 import "./css/userForm.css";
@@ -13,7 +14,6 @@ import Login from './Login';
 function Home(props) {
     const logged = props.logged;
     const user = props.user;
-
   return (
       <div>
           <div className='header'>
