@@ -1,7 +1,22 @@
 import React from 'react';
+import axios from 'axios';
 
-function CategoryForm() {
+function CategoryForm(props) {
+    const handleSave = (e) => {
+        e.preventDefault();
+        let categoryName = document.getElementsByName("categoryName")[0].value;
 
+        axios.post(`http://localhost:3001/api/categories`,
+          {
+            categoryName: categoryName,
+          })
+          .then(res => props.useSetCategories(res))
+          .then(props.setCategoryChange(!(props.categoryChange)))
+          .catch(function (error) {
+            console.log(error);
+          })
+      
+      }
 
     const handleCancel = (e) => {
         e.preventDefault();
@@ -14,11 +29,13 @@ function CategoryForm() {
         let operation_buttons = document.getElementsByClassName('buttons_row')[0];
         operation_buttons.classList.remove("buttons_row_hidden");
     }
+
+
   return (
       <div className='category_form_'>
-          <form action='http://localhost:3001/api/categories' method='POST' className='category_form'>
+          <form className='category_form'>
               <input type="text" name='categoryName' placeholder='category name...' />
-              <button type='submit' className='category_button'>Add</button>
+              <button onClick={handleSave} className='category_button'>Add</button>
               <button onClick={handleCancel}>Cancel</button>
           </form>
       </div>

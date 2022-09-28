@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
     await Category.create({
         categoryName: req.body.categoryName,
     }).then(category => {
-        res.json(category);
+        res.send(category);
     })
    })
   

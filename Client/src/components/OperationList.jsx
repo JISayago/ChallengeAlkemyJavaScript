@@ -1,25 +1,27 @@
-import React,{useContext, useEffect,useState} from 'react'
+import React,{useContext, useEffect} from 'react'
 import  UserLoggedContext from "../context/UserLoggedContext";
 import OperationDetail from './OperationDetail';
 import axios from 'axios';
+import OperationListConext from "../context/OperationListContext";
 
 function OperationList() {
 
-  const [operations, setOperations] = useState([]);
+  const { operationList, setOperationList } = useContext(OperationListConext);
   const { userLogged } = useContext(UserLoggedContext);
   
   useEffect(() => {
     axios.get(`http://localhost:3001/api/operations/${userLogged.id}`)
-      .then(res => setOperations(res.data))
+      .then(res => setOperationList(res.data))
       .catch(error => console.log(error))
-  }, [userLogged])
+  }, [])
 
     
   
   return (
     <div className='list_operations'>
       <h2>Last Operations</h2>
-      {operations.map(operation =>
+      {
+        operationList.map(operation =>
         <OperationDetail
           key={operation.id}
           operation={operation} />

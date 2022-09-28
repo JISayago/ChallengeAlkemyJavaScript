@@ -24,18 +24,16 @@ router.get('/:userId', async (req, res) => {
 
 //Create /api/operations
 router.post('/', async (req, res) => {
-    const date = new Date();
-    await Operation.create({
+        await Operation.create({
         amount: req.body.amount,
         concept: req.body.concept,
         date: req.body.date,
         typeOf: req.body.typeOf, 
-        userId:1,
-        categoryId:req.body.category,
-    }).then(operation => {
-        res.json(operation);
+        userId:req.body.userId,
+        categoryId:req.body.categoryId,
+    }).then(operation => res.send(operation));
     })
-})
+
   
 //Read  /api/operations/:id
 router.get('/:id',  async (req, res) => {

@@ -8,6 +8,7 @@ import UserName from './UserName';
 import OperationForm from './OperationForm';
 import Register from './Register';
 import Login from './Login';
+import { OperationListContextProvider } from "../context/OperationListContext";
 
 function Home(props) {
     const logged = props.logged;
@@ -23,9 +24,11 @@ function Home(props) {
                   <>
                   <ActionButtons />
                   <Register />
-                  <Login/>
-                  <OperationForm/>
-                  <OperationList />
+                      <Login />
+                      <OperationListContextProvider>
+                          <OperationForm/>
+                          <OperationList/>
+                      </OperationListContextProvider>
                   </> :
                   <>
                   <Register />
